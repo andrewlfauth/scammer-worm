@@ -1,11 +1,12 @@
 import getPageData from '../../utils/getPageData'
 
-export async function get({request}) {
+export async function post({request}) {
+  const {pages} = await request.json()
   const data = await Promise.all([
-    getPageData("1"),
-    getPageData("2"),
+    getPageData(pages[0]),
+    getPageData(pages[1]),
   ]).then()
   const merged = [].concat.apply([], data)
 
-  return new Response(JSON.stringify(merged))
+  return new Response(JSON.stringify({pages: merged}))
 }
