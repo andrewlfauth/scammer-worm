@@ -1,11 +1,12 @@
 import {useState, useEffect, useRef, useCallback} from 'preact/hooks'
+import Spinner from './Spinner'
 
-export default function Data({inital}) {
+function Data({inital}) {
   const loader = useRef()
   const [data, setData] = useState(inital)
   const nextPages = useRef([2,3])
   const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const handleObserver = useCallback(async (entries) => {
     const target = entries[0]
@@ -59,8 +60,12 @@ export default function Data({inital}) {
         </div>
       ))}
       <div ref={loader}>
-        {error ? error : loading ? "Loading" : "Done"}
+        {error ? error : 
+          loading ? <Spinner /> : ""
+        }
       </div>
     </div>
   )
 }
+
+export default Data
