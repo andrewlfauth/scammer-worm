@@ -25,7 +25,7 @@ export function dateToTimeAgo(date) {
 	];
 
 	const f = (property, end) =>{
-    if (`${property} ${end}${property > 1 ? "s" : ""} ago` === '11 months ago') return "Minutes ago"
+    if (`${property} ${end}${property > 1 ? "s" : ""} ago` === '11 months ago') return "Mins ago"
     return`${property} ${end}${property > 1 ? "s" : ""} ago`;
 	}
 
