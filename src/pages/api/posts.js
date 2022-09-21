@@ -8,5 +8,5 @@ export async function post({request}) {
   ])
   let merged = [].concat.apply([], data)
 
-  return new Response(JSON.stringify({d: 0}))
+  return new Response(JSON.stringify(merged))
 }
