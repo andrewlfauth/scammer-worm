@@ -12,10 +12,13 @@ let merged = [].concat.apply([], pages)
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="py-20">
-    <h1 class="text-4xl text-white font-semibold text-center">Scammer Worm</h1>
-    <p class="text-center text-xl text-gray-100 max-w mx-auto leading-7 mt-4">Web scraper that finds the most recently active scammer phone numbers.<br/> Happy scambaiting 😎</p>
-
+	<main class="py-20 relative">
+    <div class="flex items-center flex-col">
+      <h1 class="text-4xl text-white font-semibold">Scammer Worm</h1>
+      <p class="text-xl text-gray-100 max-w-sm leading-7 mt-4 text-center">Web scraper that finds the most recently active scammer phone numbers.</p>
+    </div>
+    <img src="https://res.cloudinary.com/dpnkrz8c8/image/upload/w_40/v1663795898/random/Group_1_1_tsaaup.png" alt="evil worm wearing headset" class="absolute top-4 left-0">
+    
     <Data client:load inital={merged} />
 	</main>
 </Layout>
