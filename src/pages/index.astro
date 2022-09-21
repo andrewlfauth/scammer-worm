@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Data from '../components/Data.jsx'
+import getPageData from '../utils/getPageData';
+
+// get first two pages 
+let pages = await Promise.all([
+  getPageData("0"),
+  getPageData("1"),
+])
+let merged = [].concat.apply([], pages)
+---
+
+<Layout title="Welcome to Astro.">
+	<main class="py-20">
+    <h1 class="text-4xl text-white font-semibold text-center">Scammer Worm</h1>
+    <p class="text-center text-xl text-gray-100 max-w mx-auto leading-7 mt-4">Web scraper that finds the most recently active scammer phone numbers.<br/> Happy scambaiting 😎</p>
+
+    <Data client:load inital={merged} />
+	</main>
+</Layout>
