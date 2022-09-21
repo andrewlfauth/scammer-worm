@@ -50,13 +50,13 @@ function Data({inital}) {
   }, [handleObserver, error])
 
   return (
-    <div class="flex flex-col space-y-2 items-center mt-14">
+    <div class="flex flex-col space-y-2 items-center mt-10">
       <div className='absolute top-2 left-2'>{nextPages[0]} {nextPages[1]}</div> 
       {data.map(d => (
         <div key={d} className="flex justify-between w-full p-4 rounded bg-gray-700 font-semibold items-center lg:w-[800px]">
-          <span className="text-white text-lg">{d.number}</span>
-          <span className="text-center max-w-sm text-sm">{d.title}</span>
-          <span className="text-emerald-400">{d.timeSincePosted}</span>
+          <span className="text-white whitespace-nowrap text-lg">{d.number}</span>
+          <span className="text-center max-w-sm  text-xs md:text-sm mx-4">{d.title}</span>
+          <span className="text-emerald-400 whitespace-nowrap">{d.timeSincePosted}</span>
         </div>
       ))}
       <div ref={loader}>
