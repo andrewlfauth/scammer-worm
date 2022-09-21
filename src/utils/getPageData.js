@@ -17,12 +17,12 @@ export default async function getPageData(page) {
     // use regexp to extract a phone number if present
     let matches = regexp.exec(p.title)
   
-    if (!matches || matches[0].length < 10) return 
+    if (!matches || matches[0].length <10) return 
   
     // format phone number match
     let rawNumber = matches[0]
     let strippedNumber = 
-      rawNumber.replaceAll(/-|\(|\)| |\+ /g, '')       
+      rawNumber.replaceAll(/-|\(|\)|\+| /g, '')       
     let formattedNumber = formatPhoneNumber(strippedNumber)
   
     // format posted at date
